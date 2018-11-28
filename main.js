@@ -31,9 +31,4 @@ $( document ).ready(function() {
     }
     
     $( "#hangup" ).css("background-color: red");
-<<<<<<< HEAD
-		
-=======
-	
->>>>>>> quean
 });
