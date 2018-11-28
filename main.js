@@ -11,37 +11,25 @@ $( document ).ready(function() {
 		if (e.keyCode == 18) { // 18 = alt
 			$( "#roomNameInput" ).val("Support");
    		}
+    //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
-			var number = $.trim($("#roomNameInput").val());
-			$( "#link" ).html("Calling Room Created");
-			var link = $( "#link" ).attr("href");
-			link = "https://appr.tc/r/" + number;
-			window.location = link;
+			goToRoomURL();
    		}
 	});
-	
-	
-	/*
-	$( "button" ).on("click", function() {
-		$( this ).html("pushed");
-		var number = $.trim($("#roomNameInput").val());
-		$( "#link" ).html("Room Created");
-		$( "#link" ).attr("href", "https://appr.tc/r/" + number);
-		
-	});
-	*/
-	
-	//called when the value inside the input is changed
+    //if the input lose focus, the room link is called
 	$( "#roomNameInput" ).change(function() {
-  		var number = $.trim($("#roomNameInput").val());
-		$( "#link" ).html("Calling Room Created");
-		var link = $( "#link" ).attr("href");
-		link = "https://appr.tc/r/" + number;
-		window.location = link;
+  		goToRoomURL();
 	});
-	
-	
-	
-
-	
+    
+    //the input value is salved into a variable that becomes the calling room name
+    function goToRoomURL(){
+    	var number = $.trim($("#roomNameInput").val());
+		$( "#link" ).html("Calling Room Created");
+		//window.location = "https://appr.tc/r/" + number;
+        document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
+        //$( "#videobox" ).innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
+    }
+    
+    $( "#hangup" ).css("background-color: red");
+		
 });
