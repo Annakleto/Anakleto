@@ -13,12 +13,8 @@ $( document ).ready(function() {
    		}
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
-			goToRoomURL();
+			alertCall();
    		}
-	});
-    //if the input lose focus, the room link is called
-	$( "#roomNameInput" ).change(function() {
-  		goToRoomURL();
 	});
     
     //the input value is salved into a variable that becomes the calling room name
@@ -27,13 +23,19 @@ $( document ).ready(function() {
 		$( "#link" ).html("Calling Room Created");
 		//window.location = "https://appr.tc/r/" + number;
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
-        //$( "#videobox" ).innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
     }
-    
-    $( "#hangup" ).css("background-color: red");
-<<<<<<< HEAD
-		
-=======
 	
->>>>>>> quean
+	function alertCall(){
+		var number = $.trim($("#roomNameInput").val());
+		if(number != 0){
+		   $( "#number" ).html(number);
+			document.getElementById("overlay").style.display = "block";
+			$("#yes").focusin();
+		} else {
+			$( "#number" ).html("Error");
+			document.getElementById("overlay").style.display = "block";
+		}
+		
+    }
+	
 });
