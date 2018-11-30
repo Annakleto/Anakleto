@@ -31,7 +31,7 @@ title{
     width: 100%;
 }
 
-#overlay {
+.overlay {
     position: fixed;
     display: none;
     width: 100%;
@@ -39,11 +39,11 @@ title{
     background-color: rgba(0,0,0,0.5);
 }
 
-#overlay p {
+.overlay p {
 	padding-bottom: 25px;
 }
 
-#overlay .overlayContent{
+.overlay .overlayContent{
     position: absolute;
 	width: 60%;
 	height: 40%;
@@ -51,10 +51,14 @@ title{
     left: 20%;
 }
 
-#overlay .choice {
+.overlay .choice {
 	display: inline-block;
 	padding: 10px;
 	width: 20%;
+}
+
+#startDemo {
+	display: block;
 }
 
 p{
