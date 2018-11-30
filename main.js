@@ -3,11 +3,19 @@
 $( document ).ready(function() {
 	"use strict";
 	
-	//starts your room, so you can be called by someone else
-	document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + "08031995" + "\" id=\"appr\"></iframe>";
-	
 	//start the document with focus on the Room Name input space
-	$( "#roomNameInput" ).focus();
+	$( "#demoNumber" ).focus();
+	
+	$( "#demoNumber" ).keyup(function(e) {
+		var myNumber = $.trim($("#demoNumber").val());
+		
+		if (e.keyCode == 13) { // 13 = enter
+			//starts your room, so you can be called by someone else
+			document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + myNumber + "\" id=\"appr\"></iframe>";
+			$("#startDemo").hide();
+			$( "#roomNameInput" ).focus();
+   		}
+	});
 	
 	//if alt button is pressed, the input value is changed into support
 	$( "#roomNameInput" ).keyup(function(e) {
@@ -23,7 +31,7 @@ $( document ).ready(function() {
 	//
 	function alertCall(){
 		var number = $.trim($("#roomNameInput").val());
-		$("#overlay").show();
+		$("#callingAlert").show();
 		if(number != 0){
 		   $( "#number" ).html(number);
 			$("#yes").focus();
@@ -35,7 +43,7 @@ $( document ).ready(function() {
 	
 	//when a button is clicked, the overlay goes away
 	$(".choice").click( function(e){
-		$("#overlay").hide();
+		$("#callingAlert").hide();
 	});
 	
 	
@@ -50,6 +58,7 @@ $( document ).ready(function() {
 		$( "#link" ).html("Calling Room Created");
 		//window.location = "https://appr.tc/r/" + number;
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
+		//$("#videobox").attr("src", "https://appr.tc/r/" + number + "\" id=\"appr\");
     }
 	
 	
