@@ -3,6 +3,9 @@
 $( document ).ready(function() {
 	"use strict";
 	
+	//starts your room, so you can be called by someone else
+	document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + "08031995" + "\" id=\"appr\"></iframe>";
+	
 	//start the document with focus on the Room Name input space
 	$( "#roomNameInput" ).focus();
 	
@@ -17,7 +20,31 @@ $( document ).ready(function() {
    		}
 	});
     
-    //the input value is salved into a variable that becomes the calling room name
+	//
+	function alertCall(){
+		var number = $.trim($("#roomNameInput").val());
+		$("#overlay").show();
+		if(number != 0){
+		   $( "#number" ).html(number);
+			$("#yes").focus();
+		} else {
+			$( "#number" ).html("Error");
+		}
+		
+    }
+	
+	//when a button is clicked, the overlay goes away
+	$(".choice").click( function(e){
+		$("#overlay").hide();
+	});
+	
+	
+	//if yes was chosen, the room for the call is changed
+	$("#yes").click( function(e){
+		goToRoomURL();
+	});
+	
+	//the input value is salved into a variable that becomes the calling room name
     function goToRoomURL(){
     	var number = $.trim($("#roomNameInput").val());
 		$( "#link" ).html("Calling Room Created");
@@ -25,25 +52,6 @@ $( document ).ready(function() {
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
     }
 	
-	function alertCall(){
-		var number = $.trim($("#roomNameInput").val());
-		if(number != 0){
-		   $( "#number" ).html(number);
-			document.getElementById("overlay").style.display = "block";
-			$("#yes").focusin();
-		} else {
-			$( "#number" ).html("Error");
-			document.getElementById("overlay").style.display = "block";
-		}
-		
-    }
 	
-	$(".choice").click( function(e){
-		$("#overlay").hide();
-	});
-	
-	$("#yes").click( function(e){
-		goToRoomURL();
-	});
 	
 });
