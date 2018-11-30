@@ -55,12 +55,17 @@ $( document ).ready(function() {
 	//the input value is salved into a variable that becomes the calling room name
     function goToRoomURL(){
     	var number = $.trim($("#roomNameInput").val());
-		$( "#link" ).html("Calling Room Created");
+		//$( "#link" ).html("Calling Room Created");
 		//window.location = "https://appr.tc/r/" + number;
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
 		//$("#videobox").attr("src", "https://appr.tc/r/" + number + "\" id=\"appr\");
     }
 	
 	
+	//while no one is calling me, hide the local-video
+	while($("#remote-video").hasClass("")){
+		$("#link").html("tappooooo");
+	}
 	
-});
+	
+}); //document ready ends
