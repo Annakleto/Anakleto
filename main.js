@@ -38,4 +38,12 @@ $( document ).ready(function() {
 		
     }
 	
+	$(".choice").click( function(e){
+		$("#overlay").hide();
+	});
+	
+	$("#yes").click( function(e){
+		goToRoomURL();
+	});
+	
 });
