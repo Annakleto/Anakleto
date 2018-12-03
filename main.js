@@ -3,8 +3,41 @@
 $( document ).ready(function() {
 	"use strict";
 	
+	/* Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyCQC2o5BQTMJGgm25aB51u6xf2qp4SG1Bs",
+		authDomain: "anakleto-f56e5.firebaseapp.com",
+		databaseURL: "https://anakleto-f56e5.firebaseio.com",
+		projectId: "anakleto-f56e5",
+		storageBucket: "anakleto-f56e5.appspot.com",
+		messagingSenderId: "734303653154"
+	  };
+	firebase.initializeApp(config);
+	*/
+	var dbRef = firebase.database();
+	var phonebookRef = dbRef.ref("phonebook");
+	
+	$("#overwrite").click( function(e){
+			phonebookRef.push({
+			  name: 'Time to Hack',
+			  number: '333',
+		});
+	});
+	
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
+	
+	/*
+	$("button").click(function(){
+    	$.ajax({
+			url: "https://appr.tc/r/Support",
+			async: false,
+			success: function(result){
+				$("#videobox").html(result);
+    		}
+		});
+	});
+	*/
 	
 	$( "#demoNumber" ).keyup(function(e) {
 		var myNumber = $.trim($("#demoNumber").val());
@@ -14,8 +47,19 @@ $( document ).ready(function() {
 			document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + myNumber + "\" id=\"appr\"></iframe>";
 			$("#startDemo").hide();
 			$( "#roomNameInput" ).focus();
+   		} else if (e.keyCode == 18) { // 18 = alt
+			var butText = $("#ajaxBut");
+			var dbRef = database().ref().child("1");
+			dbRef.on("value", snap => butText.innerText = snap.val());
    		}
 	});
+	
+	function writeUserData(userId, name, number) {
+	  firebase.database().ref('phonebook/' + userId).set({
+		username: name,
+		telephone: number
+	  });
+	}
 	
 	//if alt button is pressed, the input value is changed into support
 	$( "#roomNameInput" ).keyup(function(e) {
@@ -38,7 +82,6 @@ $( document ).ready(function() {
 		} else {
 			$( "#number" ).html("Error");
 		}
-		
     }
 	
 	//when a button is clicked, the overlay goes away
@@ -66,6 +109,8 @@ $( document ).ready(function() {
 	while($("#remote-video").hasClass("")){
 		$("#link").html("tappooooo");
 	}
+
+	 
 	
 	
 }); //document ready ends
