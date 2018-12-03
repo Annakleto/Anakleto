@@ -16,13 +16,14 @@ $( document ).ready(function() {
 	
 	var dbRef = firebase.database();
 	var phonebookRef = dbRef.ref("phonebook");
+	var myNumber = null;
 	
 	
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
 	
 	$( "#demoNumber" ).keyup(function(e) {
-		var myNumber = $.trim($("#demoNumber").val());
+		myNumber = $.trim($("#demoNumber").val());
 		
 		if (e.keyCode == 13) { // 13 = enter
 			//set your room number
