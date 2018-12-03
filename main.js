@@ -3,7 +3,7 @@
 $( document ).ready(function() {
 	"use strict";
 	
-	/* Initialize Firebase
+	//Initialize Firebase
 	  var config = {
 		apiKey: "AIzaSyCQC2o5BQTMJGgm25aB51u6xf2qp4SG1Bs",
 		authDomain: "anakleto-f56e5.firebaseapp.com",
@@ -13,7 +13,7 @@ $( document ).ready(function() {
 		messagingSenderId: "734303653154"
 	  };
 	firebase.initializeApp(config);
-	*/
+	
 	var dbRef = firebase.database();
 	var phonebookRef = dbRef.ref("phonebook");
 	
