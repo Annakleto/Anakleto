@@ -17,27 +17,9 @@ $( document ).ready(function() {
 	var dbRef = firebase.database();
 	var phonebookRef = dbRef.ref("phonebook");
 	
-	$("#overwrite").click( function(e){
-			phonebookRef.push({
-			  name: 'Time to Hack',
-			  number: '333',
-		});
-	});
 	
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
-	
-	/*
-	$("button").click(function(){
-    	$.ajax({
-			url: "https://appr.tc/r/Support",
-			async: false,
-			success: function(result){
-				$("#videobox").html(result);
-    		}
-		});
-	});
-	*/
 	
 	$( "#demoNumber" ).keyup(function(e) {
 		var myNumber = $.trim($("#demoNumber").val());
@@ -48,9 +30,12 @@ $( document ).ready(function() {
 			$("#startDemo").hide();
 			$( "#roomNameInput" ).focus();
    		} else if (e.keyCode == 18) { // 18 = alt
+			/*
 			var butText = $("#ajaxBut");
 			var dbRef = database().ref().child("1");
 			dbRef.on("value", snap => butText.innerText = snap.val());
+			*/
+			addContact("user1", muNumber);
    		}
 	});
 	
@@ -59,6 +44,13 @@ $( document ).ready(function() {
 		username: name,
 		telephone: number
 	  });
+	}
+	
+	function addContact(user, telephone) {
+		phonebookRef.push({
+			  name: user,
+			  number: telephone,
+		});
 	}
 	
 	//if alt button is pressed, the input value is changed into support
