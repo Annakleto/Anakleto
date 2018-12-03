@@ -16,14 +16,17 @@ $( document ).ready(function() {
 	
 	var dbRef = firebase.database();
 	var phonebookRef = dbRef.ref("phonebook");
-	var myNumber = null;
+	
+	var numberToCall = null;
+	var userToCall = null;
 	
 	
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
 	
 	$( "#demoNumber" ).keyup(function(e) {
-		myNumber = $.trim($("#demoNumber").val());
+		var myNumber = $.trim($("#demoNumber").val());
+		writeUserData("sup", "Support", myNumber);
 		
 		if (e.keyCode == 13) { // 13 = enter
 			//set your room number
@@ -55,17 +58,17 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
-			addContact("user1", myNumber);
-			writeUserData("nana", "anna", "333");
+			writeUserData("user", userToCall, numberToCall);
    		}
 	});
     
 	//
 	function alertCall(){
-		var number = $.trim($("#roomNameInput").val());
+		numberToCall = $.trim($("#roomNameInput").val());
+		userToCall = $.trim($("#roomNameInput").val());
 		$("#callingAlert").show();
 		if(number != 0){
-		   $( "#number" ).html(number);
+		   $( "#number" ).html(numberToCall);
 			$("#yes").focus();
 		} else {
 			$( "#number" ).html("Error");
