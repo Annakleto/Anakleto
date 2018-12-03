@@ -58,14 +58,14 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
-			writeUserData("user", userToCall, numberToCall);
+			writeUserData("user" + numberToCall, userToCall, numberToCall);
    		}
 	});
     
 	//
 	function alertCall(){
 		numberToCall = $.trim($("#roomNameInput").val());
-		userToCall = $.trim($("#roomNameInput").val());
+		userToCall = $.trim($("#userNameInput").val());
 		$("#callingAlert").show();
 		if(number != 0){
 		   $( "#number" ).html(numberToCall);
