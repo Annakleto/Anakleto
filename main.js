@@ -54,7 +54,7 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
-			addContact("user1", muNumber);
+			addContact("user1", myNumber);
 			writeUserData("nana", "anna", "333");
    		}
 	});
