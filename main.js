@@ -25,17 +25,10 @@ $( document ).ready(function() {
 		var myNumber = $.trim($("#demoNumber").val());
 		
 		if (e.keyCode == 13) { // 13 = enter
-			//starts your room, so you can be called by someone else
+			//set your room number
 			document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + myNumber + "\" id=\"appr\"></iframe>";
 			$("#startDemo").hide();
 			$( "#roomNameInput" ).focus();
-   		} else if (e.keyCode == 18) { // 18 = alt
-			/*
-			var butText = $("#ajaxBut");
-			var dbRef = database().ref().child("1");
-			dbRef.on("value", snap => butText.innerText = snap.val());
-			*/
-   		}
 	});
 	
 	function writeUserData(userId, name, number) {
@@ -61,6 +54,7 @@ $( document ).ready(function() {
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
 			addContact("user1", muNumber);
+			writeUserData("nana", "anna", "333");
    		}
 	});
     
@@ -90,19 +84,7 @@ $( document ).ready(function() {
 	//the input value is salved into a variable that becomes the calling room name
     function goToRoomURL(){
     	var number = $.trim($("#roomNameInput").val());
-		//$( "#link" ).html("Calling Room Created");
-		//window.location = "https://appr.tc/r/" + number;
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
-		//$("#videobox").attr("src", "https://appr.tc/r/" + number + "\" id=\"appr\");
     }
-	
-	
-	//while no one is calling me, hide the local-video
-	while($("#remote-video").hasClass("")){
-		$("#link").html("tappooooo");
-	}
-
-	 
-	
 	
 }); //document ready ends
