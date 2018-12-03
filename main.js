@@ -75,6 +75,7 @@ $( document ).ready(function() {
 		}
     }
 	
+	
 	//when a button is clicked, the overlay goes away
 	$(".choice").click( function(e){
 		$("#callingAlert").hide();
@@ -85,6 +86,14 @@ $( document ).ready(function() {
 	$("#yes").click( function(e){
 		goToRoomURL();
 	});
+	
+	
+	/*
+	$("#callingAlert").keyup(function(e) {
+		if (e.keyCode == ) { // 18 = alt
+			$( "#roomNameInput" ).val("Support");
+   		}
+	*/
 	
 	//the input value is salved into a variable that becomes the calling room name
     function goToRoomURL(){
