@@ -29,6 +29,7 @@ $( document ).ready(function() {
 			document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + myNumber + "\" id=\"appr\"></iframe>";
 			$("#startDemo").hide();
 			$( "#roomNameInput" ).focus();
+		}
 	});
 	
 	function writeUserData(userId, name, number) {
