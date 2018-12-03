@@ -35,7 +35,6 @@ $( document ).ready(function() {
 			var dbRef = database().ref().child("1");
 			dbRef.on("value", snap => butText.innerText = snap.val());
 			*/
-			addContact("user1", muNumber);
    		}
 	});
 	
@@ -61,6 +60,7 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
+			addContact("user1", muNumber);
    		}
 	});
     
