@@ -25,29 +25,20 @@ $( document ).ready(function() {
 	$( "#demoNumber" ).focus();
 	
 	$( "#demoNumber" ).keyup(function(e) {
-		myNumber = $.trim($("#demoNumber").val());
-		writeUserData("sup", "Support", myNumber);
-		
 		if (e.keyCode == 13) { // 13 = enter
 			//set your room number
-			document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + myNumber + "\" id=\"appr\"></iframe>";
+			myNumber = $.trim($("#demoNumber").val());
 			$("#startDemo").hide();
 			$( "#roomNameInput" ).focus();
 		}
 	});
 	
-	function writeUserData(userLocaton, name, number) {
-	  firebase.database().ref('phonebook/' + userLocaton).set({
-		username: name,
-		telephone: number
+	//add a new user location or change the one
+	function writeUserData(user, name, number) {
+	  firebase.database().ref('phonebook/' + user).set({
+		userToReach: name,
+		telephoneCalling: number
 	  });
-	}
-	
-	function addContact(user, telephone) {
-		phonebookRef.push({
-			  name: user,
-			  number: telephone,
-		});
 	}
 	
 	//if alt button is pressed, the input value is changed into support
@@ -99,10 +90,11 @@ $( document ).ready(function() {
    		}
  	});
 	
+	/*
 	//the input value is salved into a variable that becomes the calling room name
     function goToRoomURL(){
     	var number = $.trim($("#roomNameInput").val());
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
-    }
+    }*/
 	
 }); //document ready ends
