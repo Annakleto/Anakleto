@@ -24,6 +24,19 @@ $( document ).ready(function() {
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
 	
+	/*
+	dbRef.on("child_changed", function(snapshot) {
+		var changedPost = snapshot.val();
+		//console.log("The updated post title is " + changedPost.title);
+	});
+	*/
+	
+	$("dbBut").click( function(){
+		dbRef.child(myNumber).orderByChild("userToReach").equalTo('name').on("value", function(snapshot) {
+			$("#dbBut").html(snapshot.val());
+		});
+	});
+	
 	$( "#demoNumber" ).keyup(function(e) {
 		if (e.keyCode == 13) { // 13 = enter
 			//set your room number
@@ -67,18 +80,18 @@ $( document ).ready(function() {
 		}
     }
 	
-	/*
+	
 	//when a button is clicked, the overlay goes away
-	$(".choice").click( function(e){
+	$(".choice").click( function(){
 		$("#callingAlert").hide();
 	});
 	
 	
 	//if yes was chosen, the room for the call is changed
-	$("#yes").click( function(e){
+	$("#yes").click( function(){
 		goToRoomURL();
 	});
-	*/
+	
 	
 	
 	$("#callingAlert").keyup(function(e) {
