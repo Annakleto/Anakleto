@@ -19,13 +19,13 @@ $( document ).ready(function() {
 	
 	var numberToCall = null;
 	var userToCall = null;
-	
+	var myNumber = null;
 	
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
 	
 	$( "#demoNumber" ).keyup(function(e) {
-		var myNumber = $.trim($("#demoNumber").val());
+		myNumber = $.trim($("#demoNumber").val());
 		writeUserData("sup", "Support", myNumber);
 		
 		if (e.keyCode == 13) { // 13 = enter
@@ -36,8 +36,8 @@ $( document ).ready(function() {
 		}
 	});
 	
-	function writeUserData(userId, name, number) {
-	  firebase.database().ref('phonebook/' + userId).set({
+	function writeUserData(userLocaton, name, number) {
+	  firebase.database().ref('phonebook/' + userLocaton).set({
 		username: name,
 		telephone: number
 	  });
@@ -58,7 +58,7 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
-			writeUserData("user" + numberToCall, userToCall, numberToCall);
+			writeUserData(myNumber, userToCall, numberToCall);
    		}
 	});
     
