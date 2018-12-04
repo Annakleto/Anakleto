@@ -61,7 +61,11 @@ title{
 	display: block;
 }
 
-p{
+p {
 	font: 40px;
 	color: #FFFFFF;
+}
+
+input {
+	border: none;
 }

@@ -58,7 +58,7 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
-			writeUserData("user" + numberToCall, userToCall, numberToCall);
+			addContact("user" + numberToCall, userToCall, numberToCall);
    		}
 	});
     
@@ -68,14 +68,15 @@ $( document ).ready(function() {
 		userToCall = $.trim($("#userNameInput").val());
 		$("#callingAlert").show();
 		if(number != 0){
-		   $( "#number" ).html(numberToCall);
-			$("#yes").focus();
+			$( "#number" ).html(numberToCall);
+			//$("#yes").focus();
+			$("#callingAlert").focus();
 		} else {
 			$( "#number" ).html("Error");
 		}
     }
 	
-	
+	/*
 	//when a button is clicked, the overlay goes away
 	$(".choice").click( function(e){
 		$("#callingAlert").hide();
@@ -86,14 +87,17 @@ $( document ).ready(function() {
 	$("#yes").click( function(e){
 		goToRoomURL();
 	});
-	
-	
-	/*
-	$("#callingAlert").keyup(function(e) {
-		if (e.keyCode == ) { // 18 = alt
-			$( "#roomNameInput" ).val("Support");
-   		}
 	*/
+	
+	
+	$("#callingAlert").keyup(function(e) {
+		if (e.keyCode == 89) { // 89 = yes
+			goToRoomURL();
+			$("#callingAlert").hide();
+   		} else if (e.keyCode == 78) { // 78 = no
+			$("#callingAlert").hide();
+   		}
+ 	});
 	
 	//the input value is salved into a variable that becomes the calling room name
     function goToRoomURL(){
