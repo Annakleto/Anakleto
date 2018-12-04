@@ -32,6 +32,7 @@ $( document ).ready(function() {
 	*/
 	
 	$("dbBut").click( function(){
+		$("#dbBut").html(dbRef.child(myNumber).orderByChild("userToReach").equalTo('name'));
 		dbRef.child(myNumber).orderByChild("userToReach").equalTo('name').on("value", function(snapshot) {
 			$("#dbBut").html(snapshot.val());
 		});
