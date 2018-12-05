@@ -15,7 +15,7 @@ $( document ).ready(function() {
 	firebase.initializeApp(config);
 	
 	var dbRef = firebase.database();
-	var phonebookRef = dbRef.ref("phonebook");
+	var dbValRoom = null;
 	
 	var numberToCall = null;
 	var userToCall = null;
@@ -23,20 +23,6 @@ $( document ).ready(function() {
 	
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
-	
-	/*
-	dbRef.on("child_changed", function(snapshot) {
-		var changedPost = snapshot.val();
-		//console.log("The updated post title is " + changedPost.title);
-	});
-	*/
-	
-	$("dbBut").click( function(){
-		$("#dbBut").html(dbRef.child(myNumber).orderByChild("userToReach").equalTo('name'));
-		dbRef.child(myNumber).orderByChild("userToReach").equalTo('name').on("value", function(snapshot) {
-			$("#dbBut").html(snapshot.val());
-		});
-	});
 	
 	$( "#demoNumber" ).keyup(function(e) {
 		if (e.keyCode == 13) { // 13 = enter
@@ -48,12 +34,18 @@ $( document ).ready(function() {
 	});
 	
 	//add a new user location or change the one
-	function writeUserData(user, name, number) {
+	function writeUserData(user, number, myNum) {
 	  firebase.database().ref('phonebook/' + user).set({
-		userToReach: name,
-		telephoneCalling: number
+		actual_room: number,
+		my_rooom: myNum
 	  });
 	}
+	
+	//register the new value when a change occurs
+	dbRef.ref("phonebook/Simo/userToReach").on('value', function(snapshot){
+        dbValRoom = snapshot.val();
+        $("#title").html(dbValRoom);
+    });
 	
 	//if alt button is pressed, the input value is changed into support
 	$( "#roomNameInput" ).keyup(function(e) {
@@ -63,7 +55,7 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
-			writeUserData(myNumber, userToCall, numberToCall);
+			writeUserData(userToCall, numberToCall, myNumber);
    		}
 	});
     
@@ -90,7 +82,7 @@ $( document ).ready(function() {
 	
 	//if yes was chosen, the room for the call is changed
 	$("#yes").click( function(){
-		goToRoomURL();
+		//goToRoomURL();
 	});
 	
 	
