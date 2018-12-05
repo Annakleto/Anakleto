@@ -17,8 +17,7 @@ $( document ).ready(function() {
 	var dbRef = firebase.database();
 	var dbValRoom = null;
 	
-	var numberToCall = null;
-	var userToCall = null;
+	var onesNumber = null;
 	var myNumber = null;
 	
 	//start the document with focus on the Room Name input space
@@ -34,10 +33,10 @@ $( document ).ready(function() {
 	});
 	
 	//add a new user location or change the one
-	function writeUserData(user, number, myNum) {
+	function writeUserData(user, number) {
 	  firebase.database().ref('phonebook/' + user).set({
 		actual_room: number,
-		my_rooom: myNum
+		my_rooom: user
 	  });
 	}
 	
@@ -55,7 +54,7 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
-			writeUserData(userToCall, numberToCall, myNumber);
+			writeUserData(myNumber, onesNumber);
    		}
 	});
     
