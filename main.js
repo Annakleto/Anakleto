@@ -58,9 +58,9 @@ $( document ).ready(function() {
 	//check if two rooms coincidence
 	function compare(){
     	if(dbValRoom === dbValOther){
-        	$("#title").html(dbValRoom + "=" + dbValOther);
+        	$("#title").html(dbValRoom + " è " + dbValOther);
         } else {
-			$("#title").html(dbValRoom + "≠" + dbValOther);
+			$("#title").html(dbValRoom + " non è " + dbValOther);
 		}
     }
 	
