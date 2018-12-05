@@ -44,7 +44,7 @@ $( document ).ready(function() {
 	
 	//check if someone else moves to another room 
 	dbRef.ref("phonebook/" + onesNumber + "/actual_room").on('value', function(snapshot){
-        dbVal_others = snapshot.val();
+        dbValOther = snapshot.val();
 		compare();
     });
 	
@@ -58,8 +58,10 @@ $( document ).ready(function() {
 	//check if two rooms coincidence
 	function compare(){
     	if(dbValRoom === dbValOther){
-        	$("#title").html("siamo uguali");
-        }
+        	$("#title").html(dbValRoom + "=" + dbValOther);
+        } else {
+			$("#title").html(dbValRoom + "≠" + dbValOther);
+		}
     }
 	
 	//if alt button is pressed, the input value is changed into support
