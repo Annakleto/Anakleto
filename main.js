@@ -34,17 +34,25 @@ $( document ).ready(function() {
 	
 	//add a new user location or change the one
 	function writeUserData(user, number) {
-	  firebase.database().ref('phonebook/' + user).set({
+		dbRef.ref('phonebook/' + user).set({
 		actual_room: number,
-		my_rooom: user
+		my_room: user
 	  });
 	}
 	
 	//register the new value when a change occurs
-	dbRef.ref("phonebook/Simo/userToReach").on('value', function(snapshot){
+	dbRef.ref("phonebook/" + onesNumber + "/actual_room").on('value', function(snapshot){
         dbValRoom = snapshot.val();
         $("#title").html(dbValRoom);
     });
+	
+	/*
+	function checkRoom(){
+		if ( === ) {
+			
+		}
+	}
+	*/
 	
 	//if alt button is pressed, the input value is changed into support
 	$( "#roomNameInput" ).keyup(function(e) {
@@ -60,11 +68,11 @@ $( document ).ready(function() {
     
 	//
 	function alertCall(){
-		numberToCall = $.trim($("#roomNameInput").val());
-		userToCall = $.trim($("#userNameInput").val());
+		onesNumber = $.trim($("#roomNameInput").val());
+		//userToCall = $.trim($("#userNameInput").val());
 		$("#callingAlert").show();
 		if(number != 0){
-			$( "#number" ).html(numberToCall);
+			$( "#number" ).html(onesNumber);
 			//$("#yes").focus();
 			$("#callingAlert").focus();
 		} else {
