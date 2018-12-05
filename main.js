@@ -41,13 +41,11 @@ $( document ).ready(function() {
 	  });
 	}
 	
-	
 	//check if someone else moves to another room 
 	dbRef.ref("phonebook/" + onesNumber + "/actual_room").on('value', function(snapshot){
         dbValOther = snapshot.val();
 		compare();
     });
-	
 	
 	//check if I move to another room and register the value
 	dbRef.ref("phonebook/" + myNumber + "/actual_room").on('value', function(snapshot){
@@ -77,9 +75,8 @@ $( document ).ready(function() {
 	});
     
 	//
-	function alertCall(){
+	function alertCall() {
 		onesNumber = $.trim($("#roomNameInput").val());
-		//userToCall = $.trim($("#userNameInput").val());
 		$("#callingAlert").show();
 		if(number != 0){
 			$( "#number" ).html(onesNumber);
