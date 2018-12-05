@@ -96,7 +96,7 @@ $( document ).ready(function() {
 	
 	$("#callingAlert").keyup(function(e) {
 		if (e.keyCode == 89) { // 89 = yes
-			goToRoomURL();
+			//goToRoomURL();
 			$("#callingAlert").hide();
    		} else if (e.keyCode == 78) { // 78 = no
 			$("#callingAlert").hide();
