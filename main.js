@@ -16,6 +16,7 @@ $( document ).ready(function() {
 	
 	var dbRef = firebase.database();
 	var dbValRoom = null;
+	var dbValOther = null;
 	
 	var onesNumber = null;
 	var myNumber = null;
@@ -40,33 +41,26 @@ $( document ).ready(function() {
 	  });
 	}
 	
-	/*
+	
 	//check if someone else moves to another room 
 	dbRef.ref("phonebook/" + onesNumber + "/actual_room").on('value', function(snapshot){
         dbVal_others = snapshot.val();
+		compare();
     });
-	*/
+	
 	
 	//check if I move to another room and register the value
 	dbRef.ref("phonebook/" + myNumber + "/actual_room").on('value', function(snapshot){
         dbValRoom = snapshot.val();
-		var dbValOther = dbRef.ref("phonebook/simone/actual_room");
-		
-		if (dbValRoom === dbValOther){
-			$("#title").html("they match");
-		}
+		compare();
     });
 	
-	
-	
-	/*
-	//check 
-	function compareValues() {
-		if (dbValRoom === dbValOther){
-			$("#title").html("they match");
-		}
-	}
-	*/
+	//check if two rooms coincidence
+	function compare(){
+    	if(dbValRoom === dbValOther){
+        	$("#title").html("siamo uguali");
+        }
+    }
 	
 	//if alt button is pressed, the input value is changed into support
 	$( "#roomNameInput" ).keyup(function(e) {
