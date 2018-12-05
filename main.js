@@ -50,16 +50,23 @@ $( document ).ready(function() {
 	//check if I move to another room and register the value
 	dbRef.ref("phonebook/" + myNumber + "/actual_room").on('value', function(snapshot){
         dbValRoom = snapshot.val();
+		var dbValOther = dbRef.ref("phonebook/simone/actual_room");
+		
+		if (dbValRoom === dbValOther){
+			$("#title").html("they match");
+		}
     });
 	
-	var dbValOther = dbRef.ref("phonebook/simone/actual_room");
 	
+	
+	/*
 	//check 
 	function compareValues() {
 		if (dbValRoom === dbValOther){
 			$("#title").html("they match");
 		}
 	}
+	*/
 	
 	//if alt button is pressed, the input value is changed into support
 	$( "#roomNameInput" ).keyup(function(e) {
