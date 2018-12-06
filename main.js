@@ -42,7 +42,7 @@ $( document ).ready(function() {
 	}
 	
 	//check if someone else moves to another room 
-	dbRef.ref("phonebook/simone/actual_room").on('value', function(snapshot){
+	dbRef.ref("phonebook/" + myNumber + "/actual_room").on('value', function(snapshot){
         dbValOther = snapshot.val();
 		$( "#room" ).html(dbValOther);
 		compare();
@@ -51,7 +51,7 @@ $( document ).ready(function() {
 	//check if I move to another room and register the value
 	dbRef.ref("phonebook/anna/actual_room").on('value', function(snapshot){
         dbValRoom = snapshot.val();
-		$( "#other" ).html(dbValRoom);
+		$( "#other" ).html("no value stored for now");
 		compare();
     });
 	
