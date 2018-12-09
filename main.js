@@ -28,7 +28,7 @@ $( document ).ready(function() {
 	var rooms = [];
 	
 	var audioElement = document.createElement('audio');
-	audioElement.setAttribute('src', 'basic_tone.mp3');
+	audioElement.setAttribute('src', 'Anakleto/basic_tone.mp3');
 	
 		//INITIAL SETTING
 	
