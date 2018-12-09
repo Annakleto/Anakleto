@@ -25,6 +25,8 @@ $( document ).ready(function() {
 	var personMoving;
   	var desiredRoom;
 	
+	var rooms = [];
+	
 		//INITIAL SETTING
 	
 	//start the document with focus on the Room Name input space
