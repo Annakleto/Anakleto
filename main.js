@@ -103,7 +103,7 @@ $( document ).ready(function() {
 		personMoving = snapshot.key;
 		console.log(personMoving + " has tried to reach: " + desiredRoom);
 		
-		roomsArray = duplicateArray(snapshotToArray(snapshot));
+		roomsArray = findDoubles(actualRoomArray(snapshot));
 		room = roomsArray[0];
 		console.log("This room is in common: " + room + ". These are the people in the room: ");
 		getPeopleInRoom(snapshot);
