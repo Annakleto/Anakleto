@@ -115,7 +115,7 @@ $( document ).ready(function() {
 	
 	function incomingCallAlert() {
 		//if someone else actual room is the same as my room, then let me now i'm being called
-		if(desiredRoom = myNumber)){
+		if(desiredRoom = myNumber){
 			alert("you are being called");
 		}
 	}
