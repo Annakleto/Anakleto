@@ -55,55 +55,73 @@ $( document ).ready(function() {
 		//DETECT PEOPLE MOVES
 	
 	//return an array with all actual_room values in the db
-	function actualRoomArray(snapshot) {
-		var returnArr = [];
-		snapshot.forEach(function(childSnapshot) {
-			var item = childSnapshot.val();
-			returnArr.push(item.actual_room);
-		});
-		return returnArr;
-	};
+	function actualRoomToArray(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var item = childSnapshot.val();
+            rooms.push(item.actual_room);
+        });
+        return rooms;
+    };
 	
-	//search for values that are repeated twice into the array
-	function findDoubles(arra1) {
-        var object = {};
-        var result = [];
-        arra1.forEach(function (item) {
-          if(!object[item])
-            object[item] = 0;
-            object[item] += 1;
-        })
-        for (var prop in object) {
-           if(object[prop] >= 2) {
-               result.push(prop);
-           }
-        }
-        return result;
-    }
-	
-	//understands if there are more than 2 people in the same room
-	//if so, it doesn't allow to enter the room and sends you back to your staring room
-	function checkPeopleInRoom() {
-		peopleInRoom.push(personMoving);	//add caller
-		peopleInRoom.push(desiredRoom);		//add called
-		console.log(peopleInRoom.length);
-		if (peopleInRoom.length = 2) {
-			//writeUserData(personMoving, personMoving);
+	//counts how many element in an array are the as the one I want to reach
+	function count(array_elements, userToReach) {
+		array_elements.sort();
+		var index = jQuery.inArray( userToReach, array_elements );
+
+		var current = null;
+		var cnt = 0;
+		for (var i = 0; i < array_elements.length; i++) {
+			if (array_elements[i] != current) {
+				if (cnt > 0) {
+					//console.log(current + ' comes --> ' + cnt + ' times');
+					if(array_elements[i] = ){
+					   
+					   }
+				}
+				current = array_elements[i];
+				cnt = 1;
+			} else {
+				cnt++;
+			}
+		}
+		if (cnt > 0) {
+			console.log(current + ' comes --> ' + cnt + ' times');
 		}
 	}
 	
-	//
+	//writes values in the array
+	function writeArray(array){
+	  for(var i = 0; i < array.length; i++){
+		console.log(array[i]);
+	  }
+	}
+	
+	//count elements repetitions
+	function count(array_elements) {
+		var current = desiredRoom;
+		var cnt = 0;
+		for (var i = 0; i < array_elements.length; i++) {
+			console.log(array_elements[i] == desiredRoom);
+			if (array_elements[i] == desiredRoom) {
+				cnt++;
+			}
+		}
+		console.log(current + ' comes --> ' + cnt + ' times');
+		cnt = 0;
+	}
+	
+	//detect changes
+	dbRef.ref("phonebook").on("value", function(snapshot) {
+		rooms = [];
+		writeArray(actualRoomToArray(snapshot));
+		count(rooms);
+
+	});
+				
 	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
 		desiredRoom = snapshot.child('actual_room').val();
 		personMoving = snapshot.key;
 		console.log(personMoving + " has tried to reach: " + desiredRoom);
-		
-		//roomsArray = findDoubles(actualRoomArray(snapshot));
-		//room = roomsArray[0];
-		//console.log("This room is in common: " + room + ".");
-		checkPeopleInRoom();
-		
-		incomingCallAlert();
 	});
 	
 		//RECEIVE A CALL
