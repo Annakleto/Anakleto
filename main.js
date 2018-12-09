@@ -114,13 +114,6 @@ $( document ).ready(function() {
 		}
 	}
 	
-	function (){
-		roomsArray = findDoubles(actualRoomArray(snapshot));
-		if(roomsArray[0] != null){
-			h
-		}
-	}
-	
 	
 		//CONFIRM CALL
 	
