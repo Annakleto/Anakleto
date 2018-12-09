@@ -64,30 +64,18 @@ $( document ).ready(function() {
     };
 	
 	//counts how many element in an array are the as the one I want to reach
-	function count(array_elements, userToReach) {
-		array_elements.sort();
-		var index = jQuery.inArray( userToReach, array_elements );
-
-		var current = null;
-		var cnt = 0;
-		for (var i = 0; i < array_elements.length; i++) {
-			if (array_elements[i] != current) {
-				if (cnt > 0) {
-					//console.log(current + ' comes --> ' + cnt + ' times');
-					if(array_elements[i] = ){
-					   
-					   }
-				}
-				current = array_elements[i];
-				cnt = 1;
-			} else {
-				cnt++;
-			}
-		}
-		if (cnt > 0) {
-			console.log(current + ' comes --> ' + cnt + ' times');
-		}
-	}
+	function count(array_elements) {
+	var current = desiredRoom;
+    var cnt = 0;
+    for (var i = 0; i < array_elements.length; i++) {
+    	console.log(array_elements[i] == desiredRoom);
+        if (array_elements[i] == desiredRoom) {
+            cnt++;
+        }
+    }
+    console.log(current + ' comes --> ' + cnt + ' times');
+    cnt = 0;
+}
 	
 	//writes values in the array
 	function writeArray(array){
