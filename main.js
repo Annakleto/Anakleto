@@ -87,7 +87,7 @@ $( document ).ready(function() {
 		peopleInRoom.push(personMoving);	//add caller
 		peopleInRoom.push(desiredRoom);		//add called
 		if (peopleInRoom.length = 2) {
-			writeUserData(personMoving, personMoving);
+			//writeUserData(personMoving, personMoving);
 		}
 	}
 	
@@ -151,7 +151,7 @@ $( document ).ready(function() {
 	//if yes was chosen, the room for the call is changed
 	$("#yes").click( function(){
 		//goToRoomURL();
-		writeUserData(myNumber, onesNumber);
+		//writeUserData(myNumber, onesNumber);
 	});
 	
 	
