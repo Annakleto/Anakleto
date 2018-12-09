@@ -83,34 +83,13 @@ $( document ).ready(function() {
 	
 	//understands if there are more than 2 people in the same room
 	//if so, it doesn't allow to enter the room and sends you back to your staring room
-	/*function getPeopleInRoom(snapshot) {
-		snapshot.forEach(function(data) {
-			var actualVal = data.child('actual_room').val();
-
-			if(actualVal === room){
-				if (peopleInRoom.length < 2) {
-					peopleInRoom.push(data.key);
-				} else {
-					writeUserData(personMoving, personMoving);
-				}
-			}
-		});
-	}*/
-	
 	function checkPeopleInRoom() {
-		if (peopleInRoom.length < 2) {
-			peopleInRoom.push(personMoving);	//add caller
-			peopleInRoom.push(desiredRoom);		//add called
-		} else {
+		peopleInRoom.push(personMoving);	//add caller
+		peopleInRoom.push(desiredRoom);		//add called
+		if (peopleInRoom.length = 2) {
 			writeUserData(personMoving, personMoving);
 		}
 	}
-	
-	/*
-	dbRef.ref("phonebook").on("value", function(snapshot) {
-		
-	});
-	*/
 	
 	//
 	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
@@ -118,10 +97,10 @@ $( document ).ready(function() {
 		personMoving = snapshot.key;
 		console.log(personMoving + " has tried to reach: " + desiredRoom);
 		
-		roomsArray = findDoubles(actualRoomArray(snapshot));
-		room = roomsArray[0];
-		console.log("This room is in common: " + room + ".");
-		checkPeopleInRoom();
+		//roomsArray = findDoubles(actualRoomArray(snapshot));
+		//room = roomsArray[0];
+		//console.log("This room is in common: " + room + ".");
+		//checkPeopleInRoom();
 		
 		incomingCallAlert();
 	});
@@ -132,6 +111,13 @@ $( document ).ready(function() {
 		//if someone else actual room is the same as my room, then let me now i'm being called
 		if(desiredRoom = myNumber){
 			alert("you are being called");
+		}
+	}
+	
+	function (){
+		roomsArray = findDoubles(actualRoomArray(snapshot));
+		if(roomsArray[0] != null){
+			h
 		}
 	}
 	
