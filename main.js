@@ -107,7 +107,18 @@ $( document ).ready(function() {
 		room = roomsArray[0];
 		console.log("This room is in common: " + room + ". These are the people in the room: ");
 		getPeopleInRoom(snapshot);
+		
+		incomingCallAlert();
 	});
+	
+		//RECEIVE A CALL
+	
+	function incomingCallAlert() {
+		//if someone else actual room is the same as my room, then let me now i'm being called
+		if(desiredRoom = myNumber)){
+			alert("you are being called");
+		}
+	}
 	
 	
 		//CONFIRM CALL
@@ -120,7 +131,6 @@ $( document ).ready(function() {
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
 			alertCall();
-			writeUserData(myNumber, onesNumber);
    		}
 	});
     
@@ -147,6 +157,7 @@ $( document ).ready(function() {
 	//if yes was chosen, the room for the call is changed
 	$("#yes").click( function(){
 		//goToRoomURL();
+		writeUserData(myNumber, onesNumber);
 	});
 	
 	
