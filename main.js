@@ -101,7 +101,7 @@ $( document ).ready(function() {
 		//roomsArray = findDoubles(actualRoomArray(snapshot));
 		//room = roomsArray[0];
 		//console.log("This room is in common: " + room + ".");
-		//checkPeopleInRoom();
+		checkPeopleInRoom();
 		
 		incomingCallAlert();
 	});
