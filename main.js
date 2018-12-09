@@ -27,6 +27,9 @@ $( document ).ready(function() {
 	
 	var rooms = [];
 	
+	var audioElement = document.createElement('audio');
+	audioElement.setAttribute('src', 'basic_tone.mp3');
+	
 		//INITIAL SETTING
 	
 	//start the document with focus on the Room Name input space
@@ -120,7 +123,10 @@ $( document ).ready(function() {
 	function incomingCallAlert() {
 		//if someone else actual room is the same as my room, then let me now i'm being called
 		if(desiredRoom == myNumber){
-			alert("you are being called");
+			//alert("you are being called");
+			audioElement.play();
+			
+			$("#callingAlert").show();
 		}
 	}
 	
@@ -155,6 +161,9 @@ $( document ).ready(function() {
 	//when a button is clicked, the overlay goes away
 	$(".choice").click( function(){
 		$("#callingAlert").hide();
+		
+		audioElement.pause();
+		audioElement.currentTime = 0;
 	});
 	
 	
