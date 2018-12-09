@@ -86,6 +86,7 @@ $( document ).ready(function() {
 	function checkPeopleInRoom() {
 		peopleInRoom.push(personMoving);	//add caller
 		peopleInRoom.push(desiredRoom);		//add called
+		console.log(peopleInRoom.length);
 		if (peopleInRoom.length = 2) {
 			//writeUserData(personMoving, personMoving);
 		}
