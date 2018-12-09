@@ -67,17 +67,17 @@ $( document ).ready(function() {
 	
 	//counts how many element in an array are the as the one I want to reach
 	function count(array_elements) {
-	var current = desiredRoom;
-    var cnt = 0;
-    for (var i = 0; i < array_elements.length; i++) {
-    	console.log(array_elements[i] == desiredRoom);
-        if (array_elements[i] == desiredRoom) {
-            cnt++;
-        }
-    }
-    console.log(current + ' comes --> ' + cnt + ' times');
-    cnt = 0;
-}
+		var current = desiredRoom;
+		var cnt = 0;
+		for (var i = 0; i < array_elements.length; i++) {
+			console.log(array_elements[i] == desiredRoom);
+			if (array_elements[i] == desiredRoom) {
+				cnt++;
+			}
+		}
+		console.log(current + ' comes --> ' + cnt + ' times');
+		cnt = 0;
+	}
 	
 	//writes values in the array
 	function writeArray(array){
@@ -105,13 +105,14 @@ $( document ).ready(function() {
 		rooms = [];
 		writeArray(actualRoomToArray(snapshot));
 		count(rooms);
-
 	});
 				
 	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
 		desiredRoom = snapshot.child('actual_room').val();
 		personMoving = snapshot.key;
 		console.log(personMoving + " has tried to reach: " + desiredRoom);
+		//alert the other person that he's being called
+		incomingCallAlert();
 	});
 	
 		//RECEIVE A CALL
