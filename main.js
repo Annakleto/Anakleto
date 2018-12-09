@@ -70,7 +70,7 @@ $( document ).ready(function() {
         var result = [];
         arra1.forEach(function (item) {
           if(!object[item])
-              object[item] = 0;
+            object[item] = 0;
             object[item] += 1;
         })
         for (var prop in object) {
@@ -98,15 +98,18 @@ $( document ).ready(function() {
 	}
 	
 	//
+	dbRef.ref("phonebook").on("value", function(snapshot) {
+		roomsArray = findDoubles(actualRoomArray(snapshot));
+		room = roomsArray[0];
+		console.log("This room is in common: " + room + ".");
+		getPeopleInRoom(snapshot);
+	});
+	
+	//
 	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
 		desiredRoom = snapshot.child('actual_room').val();
 		personMoving = snapshot.key;
 		console.log(personMoving + " has tried to reach: " + desiredRoom);
-		
-		roomsArray = findDoubles(actualRoomArray(snapshot));
-		room = roomsArray[0];
-		console.log("This room is in common: " + room + ". These are the people in the room: ");
-		getPeopleInRoom(snapshot);
 		
 		incomingCallAlert();
 	});
