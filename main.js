@@ -83,7 +83,7 @@ $( document ).ready(function() {
 	
 	//understands if there are more than 2 people in the same room
 	//if so, it doesn't allow to enter the room and sends you back to your staring room
-	function getPeopleInRoom(snapshot) {
+	/*function getPeopleInRoom(snapshot) {
 		snapshot.forEach(function(data) {
 			var actualVal = data.child('actual_room').val();
 
@@ -95,21 +95,33 @@ $( document ).ready(function() {
 				}
 			}
 		});
+	}*/
+	
+	function checkPeopleInRoom() {
+		if (peopleInRoom.length < 2) {
+			peopleInRoom.push(personMoving);	//add caller
+			peopleInRoom.push(desiredRoom);		//add called
+		} else {
+			writeUserData(personMoving, personMoving);
+		}
 	}
 	
-	//
+	/*
 	dbRef.ref("phonebook").on("value", function(snapshot) {
-		roomsArray = findDoubles(actualRoomArray(snapshot));
-		room = roomsArray[0];
-		console.log("This room is in common: " + room + ".");
-		getPeopleInRoom(snapshot);
+		
 	});
+	*/
 	
 	//
 	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
 		desiredRoom = snapshot.child('actual_room').val();
 		personMoving = snapshot.key;
 		console.log(personMoving + " has tried to reach: " + desiredRoom);
+		
+		roomsArray = findDoubles(actualRoomArray(snapshot));
+		room = roomsArray[0];
+		console.log("This room is in common: " + room + ".");
+		checkPeopleInRoom();
 		
 		incomingCallAlert();
 	});
