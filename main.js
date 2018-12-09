@@ -160,8 +160,8 @@ $( document ).ready(function() {
 	
 	//if yes was chosen, the room for the call is changed
 	$("#yes").click( function(){
-		//goToRoomURL();
-		//writeUserData(myNumber, onesNumber);
+		goToRoomURL();
+		writeUserData(myNumber, onesNumber);
 	});
 	
 	
