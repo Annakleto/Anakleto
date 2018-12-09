@@ -119,7 +119,7 @@ $( document ).ready(function() {
 	
 	function incomingCallAlert() {
 		//if someone else actual room is the same as my room, then let me now i'm being called
-		if(desiredRoom === myNumber){
+		if(desiredRoom == myNumber){
 			alert("you are being called");
 		}
 	}
@@ -144,7 +144,7 @@ $( document ).ready(function() {
 		$("#callingAlert").show();
 		if(number != 0){
 			$( "#number" ).html(onesNumber);
-			//$("#yes").focus();
+			$("#yes").focus();
 			$("#callingAlert").focus();
 		} else {
 			$( "#number" ).html("Error");
@@ -161,6 +161,7 @@ $( document ).ready(function() {
 	//if yes was chosen, the room for the call is changed
 	$("#yes").click( function(){
 		goToRoomURL();
+		//writeUserData(user, number);
 		writeUserData(myNumber, onesNumber);
 	});
 	
@@ -174,11 +175,11 @@ $( document ).ready(function() {
    		}
  	});
 	
-	/*
+	
 	//the input value is salved into a variable that becomes the calling room name
     function goToRoomURL(){
     	var number = $.trim($("#roomNameInput").val());
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
-    }*/
+    }
 	
 }); //document ready ends
