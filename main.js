@@ -149,8 +149,8 @@ $( document ).ready(function() {
 	function alertCall() {
 		onesNumber = $.trim($("#roomNameInput").val());
 		$("#alert").show();
-		if(number != 0){
-			$( "#message" ).html("You are calling: <br/>" + number + "<br/> Do you confirm?");
+		if(onesNumber != 0){
+			$( "#message" ).html("You are calling: <br/>" + onesNumber + "<br/> Do you confirm?");
 			$("#yes").focus();
 			//$("#alert").focus();
 		} else {
