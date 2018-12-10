@@ -122,11 +122,12 @@ $( document ).ready(function() {
 	
 	function incomingCallAlert() {
 		//if someone else actual room is the same as my room, then let me now i'm being called
-		if(desiredRoom == myNumber){
+		if(desiredRoom == myNumber) {
 			//alert("you are being called");
 			audioElement.play();
 			
-			$("#callingAlert").show();
+			$("#alert").show();
+			$( "#message" ).html(personMoving + " is calling you. <br/> Do you want to reply?");
 		}
 	}
 	
@@ -147,20 +148,20 @@ $( document ).ready(function() {
 	//
 	function alertCall() {
 		onesNumber = $.trim($("#roomNameInput").val());
-		$("#callingAlert").show();
+		$("#alert").show();
 		if(number != 0){
-			$( "#number" ).html(onesNumber);
+			$( "#message" ).html("You are calling: <br/>" + number + "<br/> Do you confirm?");
 			$("#yes").focus();
-			$("#callingAlert").focus();
+			//$("#alert").focus();
 		} else {
-			$( "#number" ).html("Error");
+			$( "#message" ).html("Error");
 		}
     }
 	
 	
 	//when a button is clicked, the overlay goes away
 	$(".choice").click( function(){
-		$("#callingAlert").hide();
+		$("#alert").hide();
 		
 		audioElement.pause();
 		audioElement.currentTime = 0;
@@ -170,17 +171,16 @@ $( document ).ready(function() {
 	//if yes was chosen, the room for the call is changed
 	$("#yes").click( function(){
 		goToRoomURL();
-		//writeUserData(user, number);
 		writeUserData(myNumber, onesNumber);
 	});
 	
 	
-	$("#callingAlert").keyup(function(e) {
+	$("#alert").keyup(function(e) {
 		if (e.keyCode == 89) { // 89 = yes
 			//goToRoomURL();
-			$("#callingAlert").hide();
+			$("#alert").hide();
    		} else if (e.keyCode == 78) { // 78 = no
-			$("#callingAlert").hide();
+			$("#alert").hide();
    		}
  	});
 	
