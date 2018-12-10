@@ -122,7 +122,7 @@ $( document ).ready(function() {
 	
 	function incomingCallAlert() {
 		//if someone else actual room is the same as my room, then let me now i'm being called
-		if(desiredRoom == myNumber) {
+		if(desiredRoom == myNumber && personMoving != myNumber) {
 			//alert("you are being called");
 			audioElement.play();
 			
@@ -170,7 +170,7 @@ $( document ).ready(function() {
 	
 	//if yes was chosen, the room for the call is changed
 	$("#yes").click( function(){
-		goToRoomURL();
+		goToRoomURL(onesNumber);
 		writeUserData(myNumber, onesNumber);
 	});
 	
@@ -186,8 +186,7 @@ $( document ).ready(function() {
 	
 	
 	//the input value is salved into a variable that becomes the calling room name
-    function goToRoomURL(){
-    	var number = $.trim($("#roomNameInput").val());
+    function goToRoomURL(number){
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
     }
 	
