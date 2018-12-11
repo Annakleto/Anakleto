@@ -44,10 +44,12 @@ $( document ).ready(function() {
 			} else if(roomCount >=  3) {
 				writeUserData(myNumber, myNumber);
 				console.log("request denied: room full");
+				$("#alert").hide();
 				fullRoomAlert();
 			} else if (roomCount <= 1) {
 				writeUserData(myNumber, myNumber);
 				console.log("request denied: room doesn't exist or not defined");
+				$("#alert").hide();
 				noRoomAlert();
 			} else {
 				$(".overlay").hide();
