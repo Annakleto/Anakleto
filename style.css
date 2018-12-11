@@ -31,6 +31,14 @@ title{
     width: 100%;
 }
 
+#controls {
+	position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(35,24,203,0.50);
+}
+
 .overlay {
     position: fixed;
     display: none;

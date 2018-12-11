@@ -175,7 +175,7 @@ $( document ).ready(function() {
 	});
 	
 	
-	$("#overlayControls").hover(function() {
+	$("#controls").hover(function() {
         this.focus();
     }, function() {
         this.blur();
