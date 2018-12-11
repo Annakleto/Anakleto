@@ -131,8 +131,10 @@ $( document ).ready(function() {
 		console.log("roomCount: " + roomCount);
 		if(roomCount ==  2) {
 			console.log("request accepted");
-		} else if(roomCount =>  3) {
-			console.log("request denied");
+		} else if(roomCount >=  3) {
+			console.log("request denied: room full");
+		} else if (roomCount <= 1) {
+			console.log("request denied: room doesn't exist");
 		}
 	});
 				
