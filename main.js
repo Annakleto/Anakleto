@@ -33,7 +33,19 @@ $( document ).ready(function() {
 		//INITIAL SETTING
 	
 	//start the document with focus on the Room Name input space
-	$( "#demoNumber" ).focus();
+	//$( "#demoNumber" ).focus();
+	
+	$("#controls").focus();
+	$("#controls").keydown(function(e) {
+        console.log(e.keyCode);
+		if (e.keyCode == 89) { // 89 = yes
+			goToRoomURL(onesNumber);
+			writeUserData(myNumber, onesNumber);
+			$("#alert").hide();
+   		} else if (e.keyCode == 78) { // 78 = no
+			$("#alert").hide();
+   		}
+    });
 	
 	$( "#demoNumber" ).keyup(function(e) {
 		if (e.keyCode == 13) { // 13 = enter
@@ -174,24 +186,21 @@ $( document ).ready(function() {
 		writeUserData(myNumber, onesNumber);
 	});
 	
-	
+	/*
 	$("#controls").hover(function() {
         this.focus();
     }, function() {
         this.blur();
     }).keydown(function(e) {
-        alert(e.keeyCode);
-    });
-	
-	/*
-	$("#alert").keydown(function(e) {
+        console.log(e.keyCode);
 		if (e.keyCode == 89) { // 89 = yes
-			//goToRoomURL();
+			goToRoomURL(onesNumber);
+			writeUserData(myNumber, onesNumber);
 			$("#alert").hide();
    		} else if (e.keyCode == 78) { // 78 = no
 			$("#alert").hide();
    		}
- 	});
+    });
 	*/
 	
 	
