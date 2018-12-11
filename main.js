@@ -154,14 +154,14 @@ $( document ).ready(function() {
 		//ERRORS
 	
 	function fullRoomAlert() {
-		$("#alert").show();
-		$( "#message" ).html(onesNumber + "Tis already calling someone. <br/> Please push the red button to return.");
+		$("#errors").show();
+		$( "#error" ).html(onesNumber + "Tis already calling someone. <br/> Please push the red button to return.");
 		$("#controller").focus();
 	}
 	
 	function noRoomAlert() {
-		$("#alert").show();
-		$( "#message" ).html("The number doesn't exist. <br/> Please push the red button to return.");
+		$("#errors").show();
+		$( "#error" ).html("The number doesn't exist. <br/> Please push the red button to return.");
 		$("#controller").focus();
 	}
 	
