@@ -174,8 +174,16 @@ $( document ).ready(function() {
 		writeUserData(myNumber, onesNumber);
 	});
 	
+	$("#alert").hover(function() {
+        this.focus();
+    }, function() {
+        this.blur();
+    }).keydown(function(e) {
+        alert(e.keeyCode);
+    });
 	
-	$("#alert").keyup(function(e) {
+	/*
+	$("#alert").keydown(function(e) {
 		if (e.keyCode == 89) { // 89 = yes
 			//goToRoomURL();
 			$("#alert").hide();
@@ -183,6 +191,7 @@ $( document ).ready(function() {
 			$("#alert").hide();
    		}
  	});
+	*/
 	
 	
 	//the input value is salved into a variable that becomes the calling room name
