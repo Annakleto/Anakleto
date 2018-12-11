@@ -119,7 +119,7 @@ $( document ).ready(function() {
 		roomCount = cnt;
 		
 		console.log(current + ' comes --> ' + cnt + ' times');
-		console.log("roomCount: " + roomCount);
+		//console.log("roomCount: " + roomCount);
 		cnt = 0;
 	}
 	
@@ -128,6 +128,12 @@ $( document ).ready(function() {
 		rooms = [];
 		writeArray(actualRoomToArray(snapshot));
 		count(rooms);
+		console.log("roomCount: " + roomCount);
+		if(roomCount =  2) {
+			console.log("request accepted");
+		} else if(roomCount >  2) {
+			console.log("request denied");
+		}
 	});
 				
 	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
