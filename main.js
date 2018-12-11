@@ -38,13 +38,15 @@ $( document ).ready(function() {
 	//reads y/n commands, but needs focus everytime
 	$("#controls").keydown(function(e) {
         console.log(e.keyCode);
-		if (e.keyCode == 89) { // 89 = y = yes
-			goToRoomURL(onesNumber);
-			writeUserData(myNumber, onesNumber);
-			$(".overlay").hide();
-   		} else if (e.keyCode == 78) { // 78 = n = no
-			$(".overlay").hide();
-   		}
+		if(myNumber != null){
+		   if (e.keyCode == 89) { // 89 = y = yes
+				goToRoomURL(onesNumber);
+				writeUserData(myNumber, onesNumber);
+				$(".overlay").hide();
+			} else if (e.keyCode == 78) { // 78 = n = no
+				$(".overlay").hide();
+			}
+		}
     });
 	
 	$( "#demoNumber" ).keyup(function(e) {
