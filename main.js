@@ -33,17 +33,17 @@ $( document ).ready(function() {
 		//INITIAL SETTING
 	
 	//start the document with focus on the Room Name input space
-	//$( "#demoNumber" ).focus();
+	$( "#demoNumber" ).focus();
 	
-	$("#controls").focus();
+	//reads y/n commands, but needs focus everytime
 	$("#controls").keydown(function(e) {
         console.log(e.keyCode);
-		if (e.keyCode == 89) { // 89 = yes
+		if (e.keyCode == 89) { // 89 = y = yes
 			goToRoomURL(onesNumber);
 			writeUserData(myNumber, onesNumber);
-			$("#alert").hide();
-   		} else if (e.keyCode == 78) { // 78 = no
-			$("#alert").hide();
+			$(".overlay").hide();
+   		} else if (e.keyCode == 78) { // 78 = n = no
+			$(".overlay").hide();
    		}
     });
 	
@@ -163,14 +163,14 @@ $( document ).ready(function() {
 		$("#alert").show();
 		if(onesNumber != 0){
 			$( "#message" ).html("You are calling: <br/>" + onesNumber + "<br/> Do you confirm?");
-			$("#yes").focus();
-			//$("#alert").focus();
+			$("#controls").focus();
 		} else {
 			$( "#message" ).html("Error");
+			$("#controls").focus();
 		}
     }
 	
-	
+	/*
 	//when a button is clicked, the overlay goes away
 	$(".choice").click( function(){
 		$("#alert").hide();
@@ -178,13 +178,15 @@ $( document ).ready(function() {
 		audioElement.pause();
 		audioElement.currentTime = 0;
 	});
+	*/
 	
-	
+	/*
 	//if yes was chosen, the room for the call is changed
 	$("#yes").click( function(){
 		goToRoomURL(onesNumber);
 		writeUserData(myNumber, onesNumber);
 	});
+	*/
 	
 	/*
 	$("#controls").hover(function() {
