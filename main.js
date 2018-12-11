@@ -141,9 +141,9 @@ $( document ).ready(function() {
 		if(roomCount ==  2) {
 			console.log("request accepted");
 		} else if(roomCount >=  3) {
-			writeUserData();
+			writeUserData(myNumber, myNumber);
 			console.log("request denied: room full");
-			fullRoomAlert(myNumber, myNumber);
+			fullRoomAlert();
 		} else if (roomCount <= 1) {
 			writeUserData(myNumber, myNumber);
 			console.log("request denied: room doesn't exist or not defined");
