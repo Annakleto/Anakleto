@@ -20,7 +20,7 @@ $( document ).ready(function() {
 	var myNumber = null;
 	
 	var roomsArray = [];
-    var roomCount;
+    var room;
 	var peopleInRoom = [];
 	var personMoving;
   	var desiredRoom;
@@ -35,29 +35,14 @@ $( document ).ready(function() {
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
 	
-	//reads y/n commands
-	/*$("#controls").keydown(function(e) {
-        console.log(e.keyCode);
-		if(myNumber != null){
-		   if (e.keyCode == 89) { // 89 = y = yes
-				goToRoomURL(onesNumber);
-				writeUserData(myNumber, onesNumber);
-				$(".overlay").hide();
-			} else if (e.keyCode == 78) { // 78 = n = no
-				$(".overlay").hide();
-			}
-		}
-    });*/
-	
 	$( "#controller" ).keyup(function(e) {
 		 if (e.keyCode == 89) { // 89 = y = yes
 			goToRoomURL(onesNumber);
 			writeUserData(myNumber, onesNumber);
 			$(".overlay").hide();
-			$( "#controller" ).val("");
 		} else if (e.keyCode == 78) { // 78 = n = no
 			$(".overlay").hide();
-			$( "#controller" ).val("");
+			$( "#controller" ).val();
 		}
 	});
 	
@@ -94,7 +79,8 @@ $( document ).ready(function() {
         return rooms;
     };
 	
-	//counts how many element in an array are the same as the one I want to reach
+	/*
+	//counts how many element in an array are the as the one I want to reach
 	function count(array_elements) {
 		var current = desiredRoom;
 		var cnt = 0;
@@ -105,9 +91,9 @@ $( document ).ready(function() {
 			}
 		}
 		console.log(current + ' comes --> ' + cnt + ' times');
-		roomCount = cnt;
 		cnt = 0;
 	}
+	*/
 	
 	//writes values in the array
 	function writeArray(array){
@@ -116,20 +102,25 @@ $( document ).ready(function() {
 	  }
 	}
 	
+	//count elements repetitions
+	function count(array_elements) {
+		var current = desiredRoom;
+		var cnt = 0;
+		for (var i = 0; i < array_elements.length; i++) {
+			console.log(array_elements[i] == desiredRoom);
+			if (array_elements[i] == desiredRoom) {
+				cnt++;
+			}
+		}
+		console.log(current + ' comes --> ' + cnt + ' times');
+		cnt = 0;
+	}
+	
 	//detect changes
 	dbRef.ref("phonebook").on("value", function(snapshot) {
 		rooms = [];
+		writeArray(actualRoomToArray(snapshot));
 		count(rooms);
-		
-		console.log("roomCount: " + roomCount);
-		
-		if(roomCount = 2){
-			writeArray(actualRoomToArray(snapshot));
-		} else if (roomCount = 1 || roomCount > 2) {
-			console.log("error, 1 or 3 detected");
-		} else {
-			console.log("unknown error");
-		}
 	});
 				
 	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
@@ -145,6 +136,7 @@ $( document ).ready(function() {
 	function incomingCallAlert() {
 		//if someone else actual room is the same as my room, then let me now i'm being called
 		if(desiredRoom == myNumber && personMoving != myNumber) {
+			//alert("you are being called");
 			audioElement.play();
 			
 			$("#alert").show();
