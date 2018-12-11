@@ -84,3 +84,8 @@ input {
 	border: none;
 	background-color: rgba(0,0,0,0);
 }
+
+#videobox {
+	height: 100%;
+	width: 100%;
+}
