@@ -172,44 +172,9 @@ $( document ).ready(function() {
 		}
     }
 	
-	/*
-	//when a button is clicked, the overlay goes away
-	$(".choice").click( function(){
-		$("#alert").hide();
-		
-		audioElement.pause();
-		audioElement.currentTime = 0;
-	});
-	*/
-	
-	/*
-	//if yes was chosen, the room for the call is changed
-	$("#yes").click( function(){
-		goToRoomURL(onesNumber);
-		writeUserData(myNumber, onesNumber);
-	});
-	*/
-	
-	/*
-	$("#controls").hover(function() {
-        this.focus();
-    }, function() {
-        this.blur();
-    }).keydown(function(e) {
-        console.log(e.keyCode);
-		if (e.keyCode == 89) { // 89 = yes
-			goToRoomURL(onesNumber);
-			writeUserData(myNumber, onesNumber);
-			$("#alert").hide();
-   		} else if (e.keyCode == 78) { // 78 = no
-			$("#alert").hide();
-   		}
-    });
-	*/
-	
-	
 	//the input value is salved into a variable that becomes the calling room name
     function goToRoomURL(number){
+		$("#videobox").show();
         document.getElementById("videobox").innerHTML = "<iframe src=\"https://appr.tc/r/" + number + "\" id=\"appr\"></iframe>";
     }
 	
