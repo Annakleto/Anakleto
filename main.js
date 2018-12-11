@@ -174,7 +174,8 @@ $( document ).ready(function() {
 		writeUserData(myNumber, onesNumber);
 	});
 	
-	$("#alert").hover(function() {
+	
+	$("#overlayControls").hover(function() {
         this.focus();
     }, function() {
         this.blur();
