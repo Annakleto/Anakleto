@@ -40,9 +40,11 @@ $( document ).ready(function() {
 			goToRoomURL(onesNumber);
 			writeUserData(myNumber, onesNumber);
 			$(".overlay").hide();
+			$( "#controller" ).val("");
 		} else if (e.keyCode == 78) { // 78 = n = no
 			$(".overlay").hide();
-			$( "#controller" ).val();
+			$( "#controller" ).val("");
+			$( "#roomNameInput" ).focus();
 		}
 	});
 	
@@ -113,7 +115,7 @@ $( document ).ready(function() {
 			}
 		}
 		
-		roomCoun
+		roomCount = cnt;
 		
 		console.log(current + ' comes --> ' + cnt + ' times');
 		cnt = 0;
@@ -122,6 +124,7 @@ $( document ).ready(function() {
 	//detect changes
 	dbRef.ref("phonebook").on("value", function(snapshot) {
 		rooms = [];
+		console.log("roomCount: " + roomCount);
 		writeArray(actualRoomToArray(snapshot));
 		count(rooms);
 	});
