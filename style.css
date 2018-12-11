@@ -15,8 +15,13 @@ title{
 	display: none;
 }
 
+#videobox {
+	background-color: red;
+}
+
 #main {
     padding: 70px 0;
+	display: block;
 }
 
 #appr
