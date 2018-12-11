@@ -38,7 +38,7 @@ $( document ).ready(function() {
 	$( "#controller" ).keyup(function(e) {
 		 if (e.keyCode == 89) { // 89 = y = yes
 			goToRoomURL(onesNumber);
-			writeUserData(myNumber, onesNumber);
+			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
 			$(".overlay").hide();
 			$( "#controller" ).val("");
 		} else if (e.keyCode == 78) { // 78 = n = no
@@ -133,8 +133,10 @@ $( document ).ready(function() {
 			console.log("request accepted");
 		} else if(roomCount >=  3) {
 			console.log("request denied: room full");
+			fullRoomAlert();
 		} else if (roomCount <= 1) {
-			console.log("request denied: room doesn't exist");
+			console.log("request denied: room doesn't exist or not defined");
+			noRoomAlert();
 		}
 	});
 				
@@ -145,6 +147,20 @@ $( document ).ready(function() {
 		//alert the other person that he's being called
 		incomingCallAlert();
 	});
+	
+		//ERRORS
+	
+	function fullRoomAlert() {
+		$("#alert").show();
+		$( "#message" ).html(onesNumber + "Tis already calling someone. <br/> Please push the red button to return.");
+		$("#controller").focus();
+	}
+	
+	function noRoomAlert() {
+		$("#alert").show();
+		$( "#message" ).html("The number doesn't exist. <br/> Please push the red button to return.");
+		$("#controller").focus();
+	}
 	
 		//RECEIVE A CALL
 	
