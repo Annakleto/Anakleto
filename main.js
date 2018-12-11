@@ -128,6 +128,15 @@ $( document ).ready(function() {
 		rooms = [];
 		writeArray(actualRoomToArray(snapshot));
 		count(rooms);
+	});
+				
+	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
+		desiredRoom = snapshot.child('actual_room').val();
+		personMoving = snapshot.key;
+		console.log(personMoving + " has tried to reach: " + desiredRoom);
+		//alert the other person that he's being called
+		incomingCallAlert();
+		//check if you can call
 		console.log("roomCount: " + roomCount);
 		if(roomCount ==  2) {
 			console.log("request accepted");
@@ -140,14 +149,6 @@ $( document ).ready(function() {
 			console.log("request denied: room doesn't exist or not defined");
 			noRoomAlert();
 		}
-	});
-				
-	dbRef.ref("phonebook").on("child_changed", function(snapshot) {
-		desiredRoom = snapshot.child('actual_room').val();
-		personMoving = snapshot.key;
-		console.log(personMoving + " has tried to reach: " + desiredRoom);
-		//alert the other person that he's being called
-		incomingCallAlert();
 	});
 	
 		//ERRORS
