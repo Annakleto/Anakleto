@@ -163,7 +163,7 @@ $( document ).ready(function() {
 	
 	function noRoomAlert() {
 		$("#errors").show();
-		$( "#error" ).html("The number" + onesNumber + "doesn't exist. <br/> Please push the red button to return.");
+		$( "#error" ).html("The number " + onesNumber + " doesn't exist. <br/> Please push the red button to return.");
 		$("#controller").focus();
 	}
 	
@@ -200,7 +200,9 @@ $( document ).ready(function() {
 		onesNumber = $.trim($("#roomNameInput").val());
 		$("#alert").show();
 		if(onesNumber != 0){
+			$( "#message" ).html
 			$( "#message" ).html("You are calling: <br/>" + onesNumber + "<br/> Do you confirm?");
+			$("#my_image").attr("src","img/3Want To Call_.png");
 			$("#controller").focus();
 		} else {
 			$( "#message" ).html("Error");
