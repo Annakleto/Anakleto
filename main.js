@@ -129,9 +129,9 @@ $( document ).ready(function() {
 		writeArray(actualRoomToArray(snapshot));
 		count(rooms);
 		console.log("roomCount: " + roomCount);
-		if(roomCount =  2) {
+		if(roomCount ==  2) {
 			console.log("request accepted");
-		} else if(roomCount >  2) {
+		} else if(roomCount =>  3) {
 			console.log("request denied");
 		}
 	});
