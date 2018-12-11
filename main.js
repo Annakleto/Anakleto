@@ -55,6 +55,7 @@ $( document ).ready(function() {
 			writeUserData(myNumber, myNumber)
 			//open the first menù
 			$("#startDemo").hide();
+			$("#main").show();
 			$( "#roomNameInput" ).focus();
 		}
 	});
