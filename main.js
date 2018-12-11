@@ -20,7 +20,7 @@ $( document ).ready(function() {
 	var myNumber = null;
 	
 	var roomsArray = [];
-    var room;
+    var roomCount;
 	var peopleInRoom = [];
 	var personMoving;
   	var desiredRoom;
@@ -112,6 +112,9 @@ $( document ).ready(function() {
 				cnt++;
 			}
 		}
+		
+		roomCoun
+		
 		console.log(current + ' comes --> ' + cnt + ' times');
 		cnt = 0;
 	}
