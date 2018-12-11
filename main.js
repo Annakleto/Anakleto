@@ -119,13 +119,13 @@ $( document ).ready(function() {
 		roomCount = cnt;
 		
 		console.log(current + ' comes --> ' + cnt + ' times');
+		console.log("roomCount: " + roomCount);
 		cnt = 0;
 	}
 	
 	//detect changes
 	dbRef.ref("phonebook").on("value", function(snapshot) {
 		rooms = [];
-		console.log("roomCount: " + roomCount);
 		writeArray(actualRoomToArray(snapshot));
 		count(rooms);
 	});
@@ -148,6 +148,7 @@ $( document ).ready(function() {
 			
 			$("#alert").show();
 			$( "#message" ).html(personMoving + " is calling you. <br/> Do you want to reply?");
+			$("#controller").focus();
 		}
 	}
 	
