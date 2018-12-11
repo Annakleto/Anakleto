@@ -155,13 +155,13 @@ $( document ).ready(function() {
 	
 	function fullRoomAlert() {
 		$("#errors").show();
-		$( "#error" ).html(onesNumber + "Tis already calling someone. <br/> Please push the red button to return.");
+		$( "#error" ).html(onesNumber + " is already calling someone. <br/> Please push the red button to return.");
 		$("#controller").focus();
 	}
 	
 	function noRoomAlert() {
 		$("#errors").show();
-		$( "#error" ).html("The number doesn't exist. <br/> Please push the red button to return.");
+		$( "#error" ).html("The number" + onesNumber + "doesn't exist. <br/> Please push the red button to return.");
 		$("#controller").focus();
 	}
 	
