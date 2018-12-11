@@ -163,10 +163,10 @@ $( document ).ready(function() {
 		$("#alert").show();
 		if(onesNumber != 0){
 			$( "#message" ).html("You are calling: <br/>" + onesNumber + "<br/> Do you confirm?");
-			$("#controls").focus();
+			//$("#controls").focus();
 		} else {
 			$( "#message" ).html("Error");
-			$("#controls").focus();
+			//$("#controls").focus();
 		}
     }
 	
