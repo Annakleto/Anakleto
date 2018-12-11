@@ -38,17 +38,18 @@ $( document ).ready(function() {
 	$( "#controller" ).keyup(function(e) {
 		 if (e.keyCode == 89) { // 89 = y = yes
 			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
-			 
 			if(roomCount ==  2) {
 				console.log("request accepted");
 				goToRoomURL(onesNumber);
 			} else if(roomCount >=  3) {
 				writeUserData(myNumber, myNumber);
 				console.log("request denied: room full");
+				alert("request denied: room full");
 				fullRoomAlert();
 			} else if (roomCount <= 1) {
 				writeUserData(myNumber, myNumber);
 				console.log("request denied: room doesn't exist or not defined");
+				alert("request denied: room doesn't exist or not defined");
 				noRoomAlert();
 			}
 			 
@@ -132,7 +133,6 @@ $( document ).ready(function() {
 		roomCount = cnt;
 		
 		console.log(current + ' comes --> ' + cnt + ' times');
-		//console.log("roomCount: " + roomCount);
 		cnt = 0;
 	}
 	
@@ -151,7 +151,6 @@ $( document ).ready(function() {
 		incomingCallAlert();
 		//check if you can call
 		console.log("roomCount: " + roomCount);
-		
 	});
 	
 		//ERRORS
