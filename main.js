@@ -44,13 +44,13 @@ $( document ).ready(function() {
 			} else if(roomCount >=  3) {
 				writeUserData(myNumber, myNumber);
 				console.log("request denied: room full");
-				alert("request denied: room full");
-				fullRoomAlert();
+				//alert("request denied: room full");
+				//fullRoomAlert();
 				incomingCallAlert();
 			} else if (roomCount <= 1) {
 				writeUserData(myNumber, myNumber);
 				console.log("request denied: room doesn't exist or not defined");
-				alert("request denied: room doesn't exist or not defined");
+				//alert("request denied: room doesn't exist or not defined");
 				noRoomAlert();
 			}
 			 
