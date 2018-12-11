@@ -37,7 +37,6 @@ $( document ).ready(function() {
 	
 	$( "#controller" ).keyup(function(e) {
 		 if (e.keyCode == 89) { // 89 = y = yes
-			goToRoomURL(onesNumber);
 			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
 			$(".overlay").hide();
 			$( "#controller" ).val("");
@@ -140,6 +139,7 @@ $( document ).ready(function() {
 		console.log("roomCount: " + roomCount);
 		if(roomCount ==  2) {
 			console.log("request accepted");
+			goToRoomURL(onesNumber);
 		} else if(roomCount >=  3) {
 			writeUserData(myNumber, myNumber);
 			console.log("request denied: room full");
