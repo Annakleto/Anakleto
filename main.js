@@ -35,8 +35,8 @@ $( document ).ready(function() {
 	//start the document with focus on the Room Name input space
 	$( "#demoNumber" ).focus();
 	
-	//reads y/n commands, but needs focus everytime
-	$("#controls").keydown(function(e) {
+	//reads y/n commands
+	/*$("#controls").keydown(function(e) {
         console.log(e.keyCode);
 		if(myNumber != null){
 		   if (e.keyCode == 89) { // 89 = y = yes
@@ -47,7 +47,19 @@ $( document ).ready(function() {
 				$(".overlay").hide();
 			}
 		}
-    });
+    });*/
+	
+	$( "#controller" ).keyup(function(e) {
+		 if (e.keyCode == 89) { // 89 = y = yes
+			goToRoomURL(onesNumber);
+			writeUserData(myNumber, onesNumber);
+			$(".overlay").hide();
+			$( "#controller" ).val("");
+		} else if (e.keyCode == 78) { // 78 = n = no
+			$(".overlay").hide();
+			$( "#controller" ).val("");
+		}
+	});
 	
 	$( "#demoNumber" ).keyup(function(e) {
 		if (e.keyCode == 13) { // 13 = enter
@@ -165,10 +177,10 @@ $( document ).ready(function() {
 		$("#alert").show();
 		if(onesNumber != 0){
 			$( "#message" ).html("You are calling: <br/>" + onesNumber + "<br/> Do you confirm?");
-			//$("#controls").focus();
+			$("#controller").focus();
 		} else {
 			$( "#message" ).html("Error");
-			//$("#controls").focus();
+			$("#controller").focus();
 		}
     }
 	
