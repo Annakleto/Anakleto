@@ -27,6 +27,7 @@ $( document ).ready(function() {
 	
 	var rooms = [];
 	var incomingCall = false;
+	var calling = "ongoing";
 	
 	var audioElement = document.createElement('audio');
 	audioElement.setAttribute('src', 'Anakleto/basic_tone.mp3');
@@ -46,9 +47,9 @@ $( document ).ready(function() {
 				incomingCall = false;*/
 				
 				if(incomingCall){
-					writeUserData(myNumber, personMoving);
+					writeUserData(myNumber, desiredRoom);
 					console.log("request accepted, incoming call");
-					goToRoomURL(personMoving);
+					goToRoomURL(desiredRoom);
 					incomingCall = false;
 				} else if(!incomingCall){
 					writeUserData(myNumber, desiredRoom);
