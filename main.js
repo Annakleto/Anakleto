@@ -96,22 +96,6 @@ $( document ).ready(function() {
         return rooms;
     };
 	
-	/*
-	//counts how many element in an array are the as the one I want to reach
-	function count(array_elements) {
-		var current = desiredRoom;
-		var cnt = 0;
-		for (var i = 0; i < array_elements.length; i++) {
-			console.log(array_elements[i] == desiredRoom);
-			if (array_elements[i] == desiredRoom) {
-				cnt++;
-			}
-		}
-		console.log(current + ' comes --> ' + cnt + ' times');
-		cnt = 0;
-	}
-	*/
-	
 	//writes values in the array
 	function writeArray(array){
 	  for(var i = 0; i < array.length; i++){
@@ -191,6 +175,7 @@ $( document ).ready(function() {
    		}
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
+			$( "#roomNameInput" ).val("Support");
 			alertCall();
    		}
 	});
