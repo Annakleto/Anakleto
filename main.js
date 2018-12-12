@@ -39,11 +39,18 @@ $( document ).ready(function() {
 	$( "#controller" ).keyup(function(e) {
 		 if (e.keyCode == 89) { // 89 = y = yes
 			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
-			if(roomCount ==  2 || incomingCall) {
-				writeUserData(myNumber, personMoving);
-				console.log("request accepted");
-				goToRoomURL(personMoving);
-				incomingCall = false;
+			if(roomCount ==  2 || ) {
+			   
+				if(incomingCall){
+					writeUserData(myNumber, myNumber);
+					goToRoomURL(personMoving);
+					incomingCall = false;
+				} else if(!incomingCall){
+					writeUserData(myNumber, personMoving);
+					goToRoomURL(personMoving);
+				}
+			 	console.log("request accepted");
+				
 			} else if(roomCount >=  3) {
 				writeUserData(myNumber, myNumber);
 				console.log("request denied: room full");
