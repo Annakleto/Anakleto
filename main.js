@@ -39,7 +39,7 @@ $( document ).ready(function() {
 	$( "#controller" ).keyup(function(e) {
 		 if (e.keyCode == 89) { // 89 = y = yes
 			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
-			if(roomCount ==  2 || ) {
+			if(roomCount ==  2) {
 			   
 				if(incomingCall){
 					writeUserData(myNumber, myNumber);
