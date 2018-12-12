@@ -185,9 +185,7 @@ $( document ).ready(function() {
 		onesNumber = $.trim($("#roomNameInput").val());
 		$("#alert").show();
 		if(onesNumber != 0){
-			$( "#message" ).html
 			$( "#message" ).html("You are calling: <br/>" + onesNumber + "<br/> Do you confirm?");
-			$("#wantToCall").show();
 			$("#controller").focus();
 		} else {
 			$( "#message" ).html("Error");
