@@ -47,9 +47,9 @@ $( document ).ready(function() {
 				incomingCall = false;*/
 				
 				if(incomingCall){
-					writeUserData(myNumber, desiredRoom);
+					//writeUserData(myNumber, desiredRoom);
 					console.log("request accepted, incoming call");
-					goToRoomURL(desiredRoom);
+					goToRoomURL(myNumber);
 					incomingCall = false;
 				} else if(!incomingCall){
 					writeUserData(myNumber, desiredRoom);
