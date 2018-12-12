@@ -40,6 +40,7 @@ $( document ).ready(function() {
 		 if (e.keyCode == 89) { // 89 = y = yes
 			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
 			if(roomCount ==  2 || incomingCall) {
+				writeUserData(myNumber, personMoving);
 				console.log("request accepted");
 				goToRoomURL(personMoving);
 				incomingCall = false;
