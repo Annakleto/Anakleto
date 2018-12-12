@@ -187,7 +187,7 @@ $( document ).ready(function() {
 		if(onesNumber != 0){
 			$( "#message" ).html
 			$( "#message" ).html("You are calling: <br/>" + onesNumber + "<br/> Do you confirm?");
-			$("#alert").attr("src","img/3Want To Call_.png");
+			$("#wantToCall").show();
 			$("#controller").focus();
 		} else {
 			$( "#message" ).html("Error");
