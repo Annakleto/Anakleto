@@ -38,7 +38,7 @@ $( document ).ready(function() {
 	
 	$( "#controller" ).keyup(function(e) {
 		 if (e.keyCode == 89) { // 89 = y = yes
-			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
+			//writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
 			if(roomCount ==  2) {
 				/*writeUserData(myNumber, desiredRoom);
 				console.log("request accepted");
