@@ -68,6 +68,13 @@ $( document ).ready(function() {
 				console.log("request denied: room doesn't exist or not defined");
 				$("#alert").hide();
 				noRoomAlert();
+				
+				if(incomingCall){
+					//writeUserData(myNumber, desiredRoom);
+					console.log("request accepted, incoming call");
+					goToRoomURL(myNumber);
+					incomingCall = false;
+				}
 			} else {
 				$(".overlay").hide();
 				$( "#controller" ).val("");
