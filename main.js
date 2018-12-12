@@ -41,7 +41,7 @@ $( document ).ready(function() {
 			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
 			if(roomCount ==  2 || incomingCall) {
 				console.log("request accepted");
-				goToRoomURL(onesNumber);
+				goToRoomURL(personMoving);
 				incomingCall = false;
 			} else if(roomCount >=  3) {
 				writeUserData(myNumber, myNumber);
