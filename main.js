@@ -175,7 +175,7 @@ $( document ).ready(function() {
    		}
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
-			$( "#roomNameInput" ).val("Support");
+			//$( "#roomNameInput" ).val("Support");
 			alertCall();
    		}
 	});
@@ -187,7 +187,7 @@ $( document ).ready(function() {
 		if(onesNumber != 0){
 			$( "#message" ).html
 			$( "#message" ).html("You are calling: <br/>" + onesNumber + "<br/> Do you confirm?");
-			$("#my_image").attr("src","img/3Want To Call_.png");
+			$("#alert").attr("src","img/3Want To Call_.png");
 			$("#controller").focus();
 		} else {
 			$( "#message" ).html("Error");
