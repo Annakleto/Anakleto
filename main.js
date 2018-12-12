@@ -26,6 +26,7 @@ $( document ).ready(function() {
   	var desiredRoom;
 	
 	var rooms = [];
+	var incomingCall = false;
 	
 	var audioElement = document.createElement('audio');
 	audioElement.setAttribute('src', 'Anakleto/basic_tone.mp3');
@@ -38,9 +39,10 @@ $( document ).ready(function() {
 	$( "#controller" ).keyup(function(e) {
 		 if (e.keyCode == 89) { // 89 = y = yes
 			writeUserData(myNumber, onesNumber); //maybe this is making stuff going crazy
-			if(roomCount ==  2) {
+			if(roomCount ==  2 || incomingCall) {
 				console.log("request accepted");
 				goToRoomURL(onesNumber);
+				incomingCall = false;
 			} else if(roomCount >=  3) {
 				writeUserData(myNumber, myNumber);
 				console.log("request denied: room full");
@@ -157,6 +159,7 @@ $( document ).ready(function() {
 		//if someone else actual room is the same as my room, then let me now i'm being called
 		if(desiredRoom == myNumber && personMoving != myNumber) {
 			//alert("you are being called");
+			incomingCall = true;
 			audioElement.play();
 			
 			$("#alert").show();
@@ -175,7 +178,7 @@ $( document ).ready(function() {
    		}
     //if enter button is pressed, the room link is called
 		else if (e.keyCode == 13) { // 13 = enter
-			//$( "#roomNameInput" ).val("Support");
+			$( "#roomNameInput" ).val("Simone");
 			alertCall();
    		}
 	});
